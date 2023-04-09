@@ -27,6 +27,7 @@ class chat_screen extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
         title: Text(firendName),
       ),
       body: Column(
@@ -54,15 +55,15 @@ class chat_screen extends StatelessWidget {
                     return ListView(
                       controller: _chatController,
                       children:snapshot.data!.docs.mapIndexed((currentValue, index) {
-                        var data = snapshot.data!.docs[index];
 
-                            
-                        //list update
-                       Future.delayed(const Duration(milliseconds: 150));
-                      SchedulerBinding.instance.addPostFrameCallback((_) {
-                     _chatController.animateTo(
+                        var data = snapshot.data!.docs[index];
+          
+                       //list update
+                       Future.delayed(const Duration(milliseconds: 200));
+                       SchedulerBinding.instance.addPostFrameCallback((_){
+                       _chatController.animateTo(
                        _chatController.position.maxScrollExtent,
-                       duration: Duration(milliseconds: 500),
+                       duration: const Duration(milliseconds: 500),
                        curve: Curves.fastOutSlowIn);
                      });
                         
